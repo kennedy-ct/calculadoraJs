@@ -6,6 +6,7 @@ let firstValue = '';
 let secondValue = '';
 let percOperation = '';
 function writeOperation(value){
+    if(operation.innerText.length > 20) operation.innerText = operation.innerText.substring(0,20);
     let showResult = document.getElementById('result');
     calcResult = '';
     
@@ -36,7 +37,13 @@ function writeOperation(value){
         }
     }
     else if(value == '÷'){
-        operation.innerHTML = operation.innerText + ' ÷ ';
+        if(isNaN(operation.innerText[operation.innerText.length - 1])){
+            operation.innerHTML = operation.innerText.substring(0, operation.innerText.length - 1);
+            operation.innerHTML = operation.innerText + ' ÷ ';
+        }
+        else{
+            operation.innerHTML = operation.innerText + ' ÷ ';
+        }
     }
     else if(value == '×'){
         if(isNaN(operation.innerText[operation.innerText.length - 1])){
