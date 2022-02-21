@@ -16,14 +16,27 @@ function writeOperation(value){
 
     }
     else if(value == '²'){
-        operation.innerHTML = operation.innerText + '²';
+        if(isNaN(operation.innerText[operation.innerText.length - 1])){
+            operation.innerHTML = operation.innerText.substring(0, operation.innerText.length - 1);
+            operation.innerHTML = operation.innerText + '²';
+        }
+        else{
+            operation.innerHTML = operation.innerText + '²';
+        }
+        
     }
     else if(value == '%'){
         firstValue = '';
         secondValue = '';
         percOperation = '';
-        operation.innerHTML = operation.innerText + ' % ';
         let i = 0;
+        if(isNaN(operation.innerText[operation.innerText.length - 1])){
+            operation.innerHTML = operation.innerText.substring(0, operation.innerText.length - 1);
+            operation.innerHTML = operation.innerText + ' % ';   
+        }
+        else{
+            operation.innerHTML = operation.innerText + ' % ';
+        }
         while(!isNaN(operation.innerText[i])){
             firstValue = firstValue + operation.innerText[i];
             i++;
